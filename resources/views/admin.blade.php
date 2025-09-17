@@ -48,9 +48,7 @@
     <div class="container">
         <h1>This is Admin Page</h1>
         <p>Welcome to the admin panel. Manage your dashboard and profile easily from here.</p>
-        <a href="{{ route(name:'admin dashboard') }}">Dashboard</a>
-        <a href="{{ route(name:'admin profile') }}">Profile</a> <br>
-        <a href="{{ route(name:'/') }}">Back to Home</a>
+        <a href="{{ route(name:'welcome') }}">Back to Home</a>
     </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
+    <title>Toko Mahasiswa</title>
     <style>
         body {
             background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
@@ -48,8 +48,8 @@
     <div class="container">
         <h1>Hello World</h1>
         <p>Welcome to the very first page of my laravel project.</p>
-        <a href="{{ route(name:'contact') }}">Contact</a>
-        <a href="{{ route(name:'admin') }}">Admin Page</a> <br>
+        <a href="{{ route(name:'dashboard') }}">Dashboard</a>
+        <a href="{{ route(name:'admin') }}">Admin Page</a>
     </div>
 </body>
 </html>
