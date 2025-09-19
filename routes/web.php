@@ -55,4 +55,6 @@ Route::prefix('product')->group(function(){
     Route::delete('/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
 
+Route::get('/route_cont/{id}', [ProductController::class, 'show']); 
+
 require __DIR__.'/auth.php';
