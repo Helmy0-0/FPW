@@ -9,9 +9,10 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($index)
     {
-        return view('product');
+        $result = $index+5;
+        return view('product.index', ['result' => $result]);
     }
 
     /**
