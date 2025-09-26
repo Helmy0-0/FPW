@@ -25,7 +25,7 @@ Route::get('/rahasia', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified', 'RoleCheck:admin'])->name('dashboard');
+})->middleware(['auth', 'verified', 'RoleCheck:admin,owner'])->name('dashboard');
 
 Route::prefix('admin')->middleware(['auth', 'verified', 'RoleCheck:admin'])->group(function(){
     Route::get('/', function() {
@@ -45,16 +45,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('product')->group(function(){
-    Route::get('/', [ProductController::class, 'index'])->name('product.index');
-    Route::get('/create', [ProductController::class, 'create'])->name('product.create');
-    Route::post('/', [ProductController::class, 'store'])->name('product.store');
-    Route::get('/{id}', [ProductController::class, 'show'])->name('product.show');
-    Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
-    Route::put('/{id}', [ProductController::class, 'update'])->name('product.update');
-    Route::delete('/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
-});
+// Route::prefix('product')->group(function(){
+//     Route::get('/', [ProductController::class, 'index'])->name('product.index');
+//     Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+//     Route::post('/', [ProductController::class, 'store'])->name('product.store');
+//     Route::get('/{id}', [ProductController::class, 'show'])->name('product.show');
+//     Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+//     Route::put('/{id}', [ProductController::class, 'update'])->name('product.update');
+//     Route::delete('/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+// });
 
 Route::get('/route_cont/{id}', [ProductController::class, 'show']); 
+Route::get('/product/{index}', [ProductController::class, 'index'])->name('product.index')->middleware(['auth', 'verified', 'RoleCheck:admin,owner']);
 
 require __DIR__.'/auth.php';
