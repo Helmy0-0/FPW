@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UtsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +48,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/uts', [UtsController::class, 'index'])->name('uts.index');
+Route::prefix('uts')->group(function(){
+    Route::get('/', [UtsController::class, 'index'])->name('uts.index');
+    Route::get('/pemrograman', [UtsController::class, 'pemrograman'])->name('uts.pemrograman');
+    Route::get('/database', [UtsController::class, 'database'])->name('uts.database');
+});
 
 // Route::prefix('product')->group(function(){
 //     Route::get('/', [ProductController::class, 'index'])->name('product.index');

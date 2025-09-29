@@ -8,17 +8,19 @@
 </head>
 <body>
     <header>
-        <h1>UTS Page</h1>
+        <h1>UTS</h1>
         <nav>
-            <a href="{{ url('/uts/pemrograman') }}">Menu Pemrograman</a>
+            <a href="{{ url('/uts/pemrograman') }}">Menu Pemrograman</a> | 
             <a href="{{ url('/uts/database') }}">Menu Database</a>
         </nav>
+        <hr>
     </header>
 
     <main>
         @yield('content')
     </main>
 
+    <hr>
     <footer>
         <p>UTS FPW Helmy Krisdin Garcia</p>
     </footer>

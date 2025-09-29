@@ -10,4 +10,14 @@ class UtsController extends Controller
     {
         return view('uts.index');
     }
+
+    public function pemrograman()
+    {
+        return view('uts.pemrograman');
+    }
+
+    public function database()
+    {
+        return view('uts.database');
+    }
 }
