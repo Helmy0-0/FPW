@@ -15,6 +15,8 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+Route::get('barang/{id}', [ProductController::class, 'show'])->name('barang.show');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -57,5 +59,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/route_cont/{id}', [ProductController::class, 'show']); 
 Route::get('/product/{index}', [ProductController::class, 'index'])->name('product.index')->middleware(['auth', 'verified', 'RoleCheck:admin,owner']);
+
+// Route untuk halaman barang dengan template utama
+Route::get('/barang', function () {
+    return view('barang', ['isi_data' => '1']);
+})->name('barang');
 
 require __DIR__.'/auth.php';
