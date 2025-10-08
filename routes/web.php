@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UtsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('uts')->group(function(){
+    Route::get('/', [UtsController::class, 'index'])->name('uts.index');
+    Route::get('/pemrograman', [UtsController::class, 'pemrograman'])->name('uts.pemrograman');
+    Route::get('/database', [UtsController::class, 'database'])->name('uts.database');
+});
+
 // Route::prefix('product')->group(function(){
 //     Route::get('/', [ProductController::class, 'index'])->name('product.index');
 //     Route::get('/create', [ProductController::class, 'create'])->name('product.create');
@@ -57,6 +64,8 @@ Route::middleware('auth')->group(function () {
 //     Route::delete('/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 // });
 
+
+
 Route::get('/route_cont/{id}', [ProductController::class, 'show']); 
 Route::get('/product/{index}', [ProductController::class, 'index'])->name('product.index')->middleware(['auth', 'verified', 'RoleCheck:admin,owner']);
 
@@ -64,5 +73,6 @@ Route::get('/product/{index}', [ProductController::class, 'index'])->name('produ
 Route::get('/barang', function () {
     return view('barang', ['isi_data' => '1']);
 })->name('barang');
+
 
 require __DIR__.'/auth.php';
