@@ -72,7 +72,6 @@ Route::prefix('product')->group(function () {
     Route::get('/check/{id}', [ProductController::class, 'ganjilgenap'])->name('product.ganjilgenap');
 });
 
-// Route untuk halaman barang dengan template utama
 Route::get('/barang', function () {
     return view('barang', ['isi_data' => '1']);
 })->name('barang');
