@@ -68,8 +68,11 @@ Route::prefix('uts')->group(function(){
 
 Route::get('/route_cont/{id}', [ProductController::class, 'show']); 
 Route::prefix('product')->group(function () {
-    Route::get('/{index}', [ProductController::class, 'index'])->name('product.index');
+    Route::post('/', [ProductController::class, 'store'])->name('product-store');
+    Route::get('/create', [ProductController::class, 'create'])->name('product-create');
     Route::get('/check/{id}', [ProductController::class, 'ganjilgenap'])->name('product.ganjilgenap');
+    Route::get('/{index}', [ProductController::class, 'index'])->name('product.index');
+
 });
 
 Route::get('/barang', function () {
