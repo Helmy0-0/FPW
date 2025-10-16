@@ -38,6 +38,17 @@ class ProductController extends Controller
     {
         return view ('barang', ['isi_data'=>$id]);
     }
+    public function ganjilgenap($id)
+    {
+        if($id % 2 == 1){
+            $message = "Ganjil";
+            $type = "warning";
+        } else {
+            $message = "Genap";
+            $type = "success";
+        }
+        return view('product.ganjilgenap', ['isi_data' => $id, 'message' => $message, 'type' => $type]);
+    }
 
     /**
      * Show the form for editing the specified resource.

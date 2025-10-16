@@ -67,9 +67,11 @@ Route::prefix('uts')->group(function(){
 
 
 Route::get('/route_cont/{id}', [ProductController::class, 'show']); 
-Route::get('/product/{index}', [ProductController::class, 'index'])->name('product.index')->middleware(['auth', 'verified', 'RoleCheck:admin,owner']);
+Route::prefix('product')->group(function () {
+    Route::get('/{index}', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/check/{id}', [ProductController::class, 'ganjilgenap'])->name('product.ganjilgenap');
+});
 
-// Route untuk halaman barang dengan template utama
 Route::get('/barang', function () {
     return view('barang', ['isi_data' => '1']);
 })->name('barang');

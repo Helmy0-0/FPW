@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
 @section ('content')
-    <h2>Welcome to the Pemrograman Page</h2>
-    <p>This is the Pemrograman content area for the UTS page.</p>
+    <h2>Pemrograman Page</h2>
+    <p>This is the Pemrograman content area for the Pemrograman page.</p>
 @endsection
